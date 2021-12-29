@@ -19,7 +19,17 @@ class Neuron:
         return [ ( self.w * x + self.b ) for x in X  ] 
 
 
-n = Neuron( 3, 5 )
-system( "clear" )
-print( n.forward( X ))
+def error( Y, Y_pred ):
+    return [ ( y - y_pred ) for y, y_pred in zip( Y, Y_pred )  ]
 
+
+
+
+
+n = Neuron( 3, 5 )               #neuron initialization with w = 3 and b = 5
+Y_predicted = n.forward( X )     #calculation for all X, Y_predicted ( w = 3, b = 5 )
+
+E = error( Y, Y_predicted )
+
+system( "clear" )
+print( E )
