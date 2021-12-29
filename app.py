@@ -19,7 +19,7 @@ class Neuron:
         return [ ( self.w * x + self.b ) for x in X  ] 
 
 
-n = []
-n = Neuron.forward( X )
+n = Neuron( 3, 5 )
 system( "clear" )
-print( n )
+print( n.forward( X ))
+
