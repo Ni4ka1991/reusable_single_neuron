@@ -23,7 +23,11 @@ def error( Y, Y_pred ):
     return [ ( y - y_pred ) for y, y_pred in zip( Y, Y_pred )  ]
 
 
+def loss( E ):
+    return sum( [ e * e for e in E ] ) / len( E )
 
+def accuracy( E ):
+    return sum( [ abs( e ) for e in E ] ) / len( E )
 
 
 n = Neuron( 3, 5 )               #neuron initialization with w = 3 and b = 5
