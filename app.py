@@ -7,6 +7,8 @@ import matplotlib.pyplot as plt
 import random
 #from mpl_toolkits.mplot3d import Axes3D
 
+fig = plt.figure()
+ax  = plt.axes( projection = '3d' )
 #1
 #y = 10 * x
 
@@ -14,10 +16,14 @@ experience_1 = [ 5,  10,  15  ]
 projects_1   = [ 50, 100, 150 ]
 earn_1       = [ 60, 70,  80  ]
 
-plt.plot( experience_1, projects_1, color = "green", linestyle="solid", linewidth = 1, marker = "x" )
-plt.plot( experience_1, earn_1,     color = "red",   linestyle="solid", linewidth = 1, marker = "x" )
-plt.plot( projects_1,   earn_1,     color = "blue",  linestyle="solid", linewidth = 1, marker = "x" )
+ax.plot3D( experience_1, projects_1, earn_1, 'green', label ='parametric curve' )
+ax.set_title( 'firs data set' )
 plt.show()
+
+#plt.plot( experience_1, projects_1, color = "green", linestyle="solid", linewidth = 1, marker = "x" )
+#plt.plot( experience_1, earn_1,     color = "red",   linestyle="solid", linewidth = 1, marker = "x" )
+#plt.plot( projects_1,   earn_1,     color = "blue",  linestyle="solid", linewidth = 1, marker = "x" )
+#plt.show()
 
 
 #2
@@ -31,10 +37,10 @@ projects   = [ 50, 100, 150 ] #number
 earn       = [ 50, 60, 70   ] #k$/year
 
 
+#z = np.linspace( 0, 1, 100 )
+#x = z * np.sin( 25 * z )
+#y = z * np.cos( 25 * z )
 
-
-#X = [ 5, 10, 15, 20 ]
-#Y = [ 5, 10, 10, 15 ]
 
 class Neuron:
     def __init__( self, w = 0, b = 0 ):
