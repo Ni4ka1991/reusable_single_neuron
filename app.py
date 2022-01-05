@@ -16,25 +16,37 @@ experience_1 = [ 5,  10,  15  ]
 projects_1   = [ 50, 100, 150 ]
 earn_1       = [ 60, 70,  80  ]
 
-ax.plot3D( experience_1, projects_1, earn_1, 'green', label ='parametric curve' )
-ax.set_title( 'firs data set' )
-plt.show()
-
-#plt.plot( experience_1, projects_1, color = "green", linestyle="solid", linewidth = 1, marker = "x" )
-#plt.plot( experience_1, earn_1,     color = "red",   linestyle="solid", linewidth = 1, marker = "x" )
-#plt.plot( projects_1,   earn_1,     color = "blue",  linestyle="solid", linewidth = 1, marker = "x" )
+#ax.plot3D( experience_1, projects_1, earn_1, 'green', label ='parametric curve' )
+#ax.set_title( 'firs data set' )
 #plt.show()
 
 
 #2
-experience = [ 5,  10, 15 ] #years
-projects   = [ 25, 50, 75 ] #number
-earn       = [ 30, 35, 40 ] #k$/year
+experience_2 = [ 5,  10, 15 ] #years
+projects_2   = [ 25, 50, 75 ] #number
+earn_2       = [ 30, 35, 40 ] #k$/year
+
+#ax.plot3D( experience_2, projects_2, earn_2, 'red', label ='parametric curve' )
+#ax.set_title( 'Two data sets' )
+#plt.show()
 
 #3
-experience = [ 2,  4,   6   ] #years
-projects   = [ 50, 100, 150 ] #number
-earn       = [ 50, 60, 70   ] #k$/year
+experience_3 = [ 2,  4,   6   ] #years
+projects_3   = [ 50, 100, 150 ] #number
+earn_3       = [ 50, 60, 70   ] #k$/year
+
+#ax.plot3D( experience_3, projects_3, earn_3, 'blue', label ='parametric curve' )
+#ax.set_title( 'Three data sets' )
+#plt.show()
+
+#all_data
+experience = [ 5,  10,  15,    5,  10, 15,    2,  4,   6   ] #years
+projects   = [ 50, 100, 150,   25, 50, 75,    50, 100, 150 ] #number
+earn       = [ 60, 70,  80,    30, 35, 40,    50, 60, 70   ] #k$/year
+
+ax.plot3D( experience, projects, earn, 'black', label ='parametric curve' )
+ax.set_title( 'All data sets' )
+plt.show()
 
 
 #z = np.linspace( 0, 1, 100 )
