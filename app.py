@@ -48,10 +48,11 @@ ax.plot3D( experience, projects, earn, 'black', label ='parametric curve' )
 ax.set_title( 'All data sets' )
 plt.show()
 
+#data for testing
+#experience = [ 5,   10  ] #years
+#projects   = [ 100, 200 ] #number
+#earn       = [ 120, 150 ] #k$/year
 
-#z = np.linspace( 0, 1, 100 )
-#x = z * np.sin( 25 * z )
-#y = z * np.cos( 25 * z )
 
 
 class Neuron:
