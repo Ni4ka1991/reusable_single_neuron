@@ -5,17 +5,33 @@ import math
 from os import system
 import matplotlib.pyplot as plt
 import random
+#from mpl_toolkits.mplot3d import Axes3D
 
+#1
+#y = 10 * x
 
+experience_1 = [ 5,  10,  15  ] 
+projects_1   = [ 50, 100, 150 ]
+earn_1       = [ 60, 70,  80  ]
 
-experience = [ 5,  10,  15,    5,  10, 15,    2,  4,   6   ] #years
-projects   = [ 50, 100, 150,   25, 50, 75,    50, 100, 150 ] #number
-earn       = [ 60, 70,  80,    30, 35, 40,    50, 60, 70   ] #k$/year
-
-plt.plot( experience, projects, color = "green", linestyle="solid", linewidth = 1, marker = "x" )
-#plt.plot( experience, earn,     color = "red",   linestyle="solid", linewidth = 1, marker = "x" )
-#plt.plot( projects,   earn,     color = "blue",  linestyle="solid", linewidth = 1, marker = "x" )
+plt.plot( experience_1, projects_1, color = "green", linestyle="solid", linewidth = 1, marker = "x" )
+plt.plot( experience_1, earn_1,     color = "red",   linestyle="solid", linewidth = 1, marker = "x" )
+plt.plot( projects_1,   earn_1,     color = "blue",  linestyle="solid", linewidth = 1, marker = "x" )
 plt.show()
+
+
+#2
+experience = [ 5,  10, 15 ] #years
+projects   = [ 25, 50, 75 ] #number
+earn       = [ 30, 35, 40 ] #k$/year
+
+#3
+experience = [ 2,  4,   6   ] #years
+projects   = [ 50, 100, 150 ] #number
+earn       = [ 50, 60, 70   ] #k$/year
+
+
+
 
 #X = [ 5, 10, 15, 20 ]
 #Y = [ 5, 10, 10, 15 ]
