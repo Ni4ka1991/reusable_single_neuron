@@ -18,8 +18,8 @@ earn       = [ 60, 70,  80,    30, 35, 40,    50, 60, 70   ] #k$/year
 #ax.plot3D( experience, projects, earn, 'black', label ='parametric curve' )
 #ax.set_title( 'All data sets' )
 
-plt.plot( experience, earn, color = "green", linestyle="solid", linewidth = 1, marker = "x" )
-plt.show()
+#plt.plot( experience, earn, color = "green", linestyle="solid", linewidth = 1, marker = "x" )
+#plt.show()
 
 #data for testing
 #experience = [ 5,   10  ] #years
@@ -27,32 +27,27 @@ plt.show()
 #earn       = [ 120, 150 ] #k$/year
 
 
-
-class Neuron:
-    def __init__( self, w = 0, b = 0, a = 0 ):
-        self.w = w
-        self.b = b
-        self.a = a
     
-    def forward( self, X ):
-        return [ ( self.w * x + self.b ) for x in X  ] 
+def search_dependencies( X, Y, Z ):
+        return [ ( x * y ) / z for x, y, z in zip( X, Y, Z ) ] 
 
 
-def error( Y, Y_pred ):
-    return [ ( y - y_pred ) for y, y_pred in zip( Y, Y_pred )  ]
+coef = search_dependencies( experience, projects, earn )
+coef_1 = coef[:3]
+coef_2 = coef[3:6]
+coef_3 = coef[6:]
 
 
-def loss( E ):                                     
-    return sum( [ e * e for e in E ] ) / len( E )   #MSE
-
-def accuracy( E ):
-    return sum( [ abs( e ) for e in E ] ) / len( E )
-
-
-n = Neuron( 3, 5 )               #neuron initialization with w = 3 and b = 5
-Y_predicted = n.forward( X )     #calculation for all X, Y_predicted ( w = 3, b = 5 )
-
-E = error( Y, Y_predicted )
+#plt.plot( experience, earn, color = "green", linestyle="solid", linewidth = 1, marker = "x" )
+#plt.show()
 
 system( "clear" )
-print( E )
+print( f"coef = {coef}" )
+print( f"coef_1 = {coef_1}" )
+print( f"coef_2 = {coef_2}" )
+print( f"coef_3 = {coef_3}" )
+
+plt.plot( coef_1, color = "green", linestyle="solid", linewidth = 1, marker = "x" )
+plt.plot( coef_2, color = "blue",  linestyle="solid", linewidth = 1, marker = "x" )
+plt.plot( coef_3, color = "red",   linestyle="solid", linewidth = 1, marker = "x" )
+plt.show()
