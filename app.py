@@ -7,16 +7,18 @@ import matplotlib.pyplot as plt
 import random
 #from mpl_toolkits.mplot3d import Axes3D
 
-fig = plt.figure()
-ax  = plt.axes( projection = '3d' )
+#fig = plt.figure()
+#ax  = plt.axes( projection = '3d' )
 
 #all_data
 experience = [ 5,  10,  15,    5,  10, 15,    2,  4,   6   ] #years
 projects   = [ 50, 100, 150,   25, 50, 75,    50, 100, 150 ] #number
 earn       = [ 60, 70,  80,    30, 35, 40,    50, 60, 70   ] #k$/year
 
-ax.plot3D( experience, projects, earn, 'black', label ='parametric curve' )
-ax.set_title( 'All data sets' )
+#ax.plot3D( experience, projects, earn, 'black', label ='parametric curve' )
+#ax.set_title( 'All data sets' )
+
+plt.plot( experience, earn, color = "green", linestyle="solid", linewidth = 1, marker = "x" )
 plt.show()
 
 #data for testing
@@ -27,9 +29,10 @@ plt.show()
 
 
 class Neuron:
-    def __init__( self, w = 0, b = 0 ):
+    def __init__( self, w = 0, b = 0, a = 0 ):
         self.w = w
         self.b = b
+        self.a = a
     
     def forward( self, X ):
         return [ ( self.w * x + self.b ) for x in X  ] 
