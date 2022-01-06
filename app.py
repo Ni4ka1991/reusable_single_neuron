@@ -42,15 +42,30 @@ def accuracy( E ):
     return sum( [ abs( e ) for e in E ] ) / len( E )
 
 
-n = Neuron( 0.08, 1, 0.08, 1 )                            
+w = 0.08
+b = 1
+v = 0.08
+c = 1
 
-Y_predicted = n.forward( experience, projects )
+def rough_approximation( X, Y, Z ):
+    L = []
+    
+    w = np.random.normal()
+    b = np.random.normal()
+    v = np.random.normal()
+    c = np.random.normal()
+    
+    for i in range( 20 ):
+        n = Neuron( w, b, v, c )                            
+        Y_predicted = n.forward( X, Y )
+        E = error( Z, Y_predicted )
+        L.append( loss( E ))
+    return L
 
-E = error( earn, Y_predicted )
 
-plt.plot( earn,           color = "green", linestyle="solid", linewidth = 1, marker = "x" )
-plt.plot( Y_predicted,    color = "blue",  linestyle="solid", linewidth = 1, marker = "x" )
-plt.show()
 
-#system( "clear" )
-#print( E )
+
+
+system( "clear" )
+
+print( rough_approximation( experience, projects, earn ))
