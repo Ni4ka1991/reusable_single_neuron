@@ -5,21 +5,13 @@ import math
 from os import system
 import matplotlib.pyplot as plt
 import random
-#from mpl_toolkits.mplot3d import Axes3D
 
-#fig = plt.figure()
-#ax  = plt.axes( projection = '3d' )
 
 #all_data
 experience = [ 5,  10,  15,    5,  10, 15,    2,  4,   6   ] #years
 projects   = [ 50, 100, 150,   25, 50, 75,    50, 100, 150 ] #number
 earn       = [ 60, 70,  80,    30, 35, 40,    50, 60, 70   ] #k$/year
 
-#ax.plot3D( experience, projects, earn, 'black', label ='parametric curve' )
-#ax.set_title( 'All data sets' )
-
-plt.plot( experience, earn, color = "green", linestyle="solid", linewidth = 1, marker = "x" )
-plt.show()
 
 #data for testing
 #experience = [ 5,   10  ] #years
@@ -29,13 +21,14 @@ plt.show()
 
 
 class Neuron:
-    def __init__( self, w = 0, b = 0, a = 0 ):
+    def __init__( self, w = 0, v = 0, b = 0, c = 0 ):
         self.w = w
+        self.v = v
         self.b = b
-        self.a = a
+        self.c = c
     
-    def forward( self, X ):
-        return [ ( self.w * x + self.b ) for x in X  ] 
+    def forward( self, X, Y ):
+        return [ ( self.w * x + self.b ) * (self.v * y + self.c ) for x, y in zip( X, Y )  ] 
 
 
 def error( Y, Y_pred ):
@@ -49,10 +42,15 @@ def accuracy( E ):
     return sum( [ abs( e ) for e in E ] ) / len( E )
 
 
-n = Neuron( 3, 5 )               #neuron initialization with w = 3 and b = 5
-Y_predicted = n.forward( X )     #calculation for all X, Y_predicted ( w = 3, b = 5 )
+n = Neuron( 0.08, 1, 0.08, 1 )                            
 
-E = error( Y, Y_predicted )
+Y_predicted = n.forward( experience, projects )
 
-system( "clear" )
-print( E )
+E = error( earn, Y_predicted )
+
+plt.plot( earn,           color = "green", linestyle="solid", linewidth = 1, marker = "x" )
+plt.plot( Y_predicted,    color = "blue",  linestyle="solid", linewidth = 1, marker = "x" )
+plt.show()
+
+#system( "clear" )
+#print( E )
