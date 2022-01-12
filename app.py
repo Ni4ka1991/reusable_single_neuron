@@ -12,14 +12,14 @@ import random
 
 #all_data
 experience = [ 5,  10,  15,    5,  10, 15,    2,  4,   6   ] #years
-projects   = [ 50, 100, 150,   25, 50, 75,    50, 100, 150 ] #number
+projects   = [ 50, 100, 150,   25, 50, 75,    50, 100, 150 ] #number   y1 = 10*x, y2 = 5*x, y3 = 25*x
 earn       = [ 60, 70,  80,    30, 35, 40,    50, 60, 70   ] #k$/year
 
 #ax.plot3D( experience, projects, earn, 'black', label ='parametric curve' )
 #ax.set_title( 'All data sets' )
 
-plt.plot( experience, earn, color = "green", linestyle="solid", linewidth = 1, marker = "x" )
-plt.show()
+#plt.plot( experience, earn, color = "green", linestyle="solid", linewidth = 1, marker = "x" )
+#plt.show()
 
 #data for testing
 #experience = [ 5,   10  ] #years
@@ -27,12 +27,11 @@ plt.show()
 #earn       = [ 120, 150 ] #k$/year
 
 
-
+# NEURON LOGIC ######
 class Neuron:
-    def __init__( self, w = 0, b = 0, a = 0 ):
+    def __init__( self, w = 0, b = 0 ):
         self.w = w
         self.b = b
-        self.a = a
     
     def forward( self, X ):
         return [ ( self.w * x + self.b ) for x in X  ] 
@@ -43,16 +42,75 @@ def error( Y, Y_pred ):
 
 
 def loss( E ):                                     
-    return sum( [ e * e for e in E ] ) / len( E )   #MSE
+    return sum( [ e * e for e in E ] ) / len( E )                      #MSE
 
 def accuracy( E ):
     return sum( [ abs( e ) for e in E ] ) / len( E )
 
+# NEURON LOGIC ######
 
-n = Neuron( 3, 5 )               #neuron initialization with w = 3 and b = 5
-Y_predicted = n.forward( X )     #calculation for all X, Y_predicted ( w = 3, b = 5 )
 
-E = error( Y, Y_predicted )
+# CALCULATIONS ######
+
+edl = 20                 #experience_data_lenght = 20
+
+## random data list ###
+def produce_random_data_list( len_list = 20 ):
+    D = []
+    for i in range( len_list ):
+        d = np.random.normal()
+        D.append( d )
+    return D
+
+W = produce_random_data_list( edl )    # list of 20 random weights
+B = produce_random_data_list( edl )    # list of 20 random biases
+
+
+## function for calculate a rough approximation loss
+
+def rough_approximation_loss( X, Y, W, B ):
+    L = []
+    for i in range( len( W )):
+        n = Neuron( W[i], B[i] )
+        Y_predicted = n.forward( X )
+        E = error( Y, Y_predicted )
+        L.append( loss( E ))
+    return L
+
+
+L_W = rough_approximation_loss( experience, projects, W,             B = [0] * edl )
+L_B = rough_approximation_loss( experience, projects, W = [0] * edl, B             )
+
+
+
+
+
+def search_least_loss_coefficients( X, Y, W, B, k ):
+    LL = []
+    for i in range( k ):
+        LL.append( rough_approximation( X, Y, W, B )
+
+
+
+#L_B = rough_approximation( B,  experience, projects )
+
+
+
+
+#n = Neuron( 0, 0 )                                       
+#Y_predicted = n.forward( experience )     #calculation for all X, Y_predicted ( w = 3, b = 5 )
+
+#E = error( projects, Y_predicted )
+#L = loss( E )
 
 system( "clear" )
-print( E )
+print( f"W_list = {W}" )
+print( f"B_list = {B}" )
+print( f"L(W) = {L_W}" )
+
+
+
+
+
+
+
