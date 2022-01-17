@@ -12,46 +12,19 @@ import random
 
 #all_data
 experience = [ 5,  10,  15,    5,  10, 15,    2,  4,   6   ] #years
-projects   = [ 50, 100, 150,   25, 50, 75,    50, 100, 150 ] #number   y1 = 10*x, y2 = 5*x, y3 = 25*x
-earn       = [ 60, 70,  80,    30, 35, 40,    50, 60, 70   ] #k$/year  z = f ( x, y )
+projects   = [ 50, 100, 150,   25, 50, 75,    50, 100, 150 ] #number
+earn       = [ 60, 70,  80,    30, 35, 40,    50, 60, 70   ] #k$/year
 
 
+#arrays
+#[ x    2*x        3*x   ]
+#[ x    2*x        3*x   ]
+#[ x   x + k     x + 2*k ]
 
-#projects in one month   = [ 4.1,  8.33, 12.5,
-#                            2.08, 4.1,  6.25,                               ]
-#                            4.1,  8.33, 12.5 ]
+#[ 5,   10,  y1 ] #15
+#[ 100, 200, y2 ] #300
+#[ 120, 150, y3 ] #180
 
-
-
-
-#    5                 10                  15               years exp
-
-# 60   30            70    35           80    40
-# -- , --- = 1.2     ---,  --- = 0.7    ---,  --- = 0.5(3)  k$/one project  experiense ^ , earn v
-# 50   25            100   50           150   75
-
-
-#    2        4          6                                  years exp
-
-# 50          60         70
-# -- = 1   --- = 0.6     --- = 0.466666                     k$/one project  experiense ^ , earn v
-# 50         100         150
-
-
-#experience_data  = [ 2, 4,   5,   6,    10,  15   ]
-#earn_one_project = [ 1, 0.6, 1.2, 0.47, 0.7, 0.53 ]
-
-
-#ax.plot3D( experience, projects, earn, 'black', label ='parametric curve' )
-#ax.set_title( 'All data sets' )
-
-#plt.plot( experience, earn, color = "green", linestyle="solid", linewidth = 1, marker = "x" )
-#plt.show()
-
-#data for testing
-#experience = [ 5,   10  ] #years
-#projects   = [ 100, 200 ] #number
-#earn       = [ 120, 150 ] #k$/year
 
 
 # NEURON LOGIC ######
