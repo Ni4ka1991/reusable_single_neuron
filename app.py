@@ -26,6 +26,11 @@ earn       = [ 60, 70,  80,    30, 35, 40,    50, 60, 70   ] #k$/year
 #[ 120, 150, y3 ] #180
 
 
+#calculation of y1 = f(x1); y2 = f(x2) => f identical =>>>>> 
+
+#[ x,   2 * x,   3 * x   ]
+#[ x,  x + k,  x + 2 * k ]
+
 
 # NEURON LOGIC ######
 
@@ -50,4 +55,21 @@ def accuracy( E ):
 
 # ************ ######
 
+d = np.array( [ [5, 10, 15], [50, 100, 150], [60, 70, 80] ] )
 
+
+
+
+
+a = np.ones(3)
+b = np.zeros(3)
+c = np.random.random(3)
+std_c = c.std()
+mean_c = c.mean()
+system( "clear" )
+print(a)
+print(b)
+print(d)
+print( f"Random array c 1*3 = {c}" )
+print( f"Standard deviation c: {std_c}" )
+print( f"Arithmetic mean c: {mean_c}" )
