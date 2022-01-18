@@ -13,8 +13,16 @@ import random
 #all_data
 experience = [ 5,  10,  15,    5,  10, 15,    2,  4,   6   ] #years
 projects   = [ 50, 100, 150,   25, 50, 75,    50, 100, 150 ] #number
-earn       = [ 60, 70,  80,    30, 35, 40,    50, 60, 70   ] #k$/year
+earn       = [ 60, 70,  80,    30, 35, 40,    50, 60,  70  ] #k$/year
 
+#arrays
+#[ x    2*x        3*x   ]
+#[ x    2*x        3*x   ]
+#[ x   x + k     x + 2*k ]
+
+#[ 5,   10,  y1 ] #15
+#[ 100, 200, y2 ] #300
+#[ 120, 150, y3 ] #180
 
 
 # NEURON LOGIC ######
@@ -41,19 +49,20 @@ def accuracy( E ):
 # ************ ######
 
 experience_data = ( [ 
-               [            
+               [  #axis z = 0
+#                 x   y    z     = data! not axis
                  [5,  10,  15 ],
                  [50, 100, 150],
                  [60, 70,  80 ]
                ],
                
-               [ 
+               [ #axis z = 1
                  [5,  10, 15],
                  [25, 50, 75],
                  [30, 35, 40]
                ],
                
-               [
+               [ #axis z = 2
                  [2,  4,   6  ],
                  [50, 100, 150],
                  [50, 60,  70 ]
@@ -61,5 +70,42 @@ experience_data = ( [
                     ] )
 
 system( "clear" )
-print( experience_data )
+predicted_data = experience_data.copy()
+print( f" y_1 = {predicted_data[0][0][1]}" )   #[z][строка][столбец]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
