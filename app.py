@@ -69,14 +69,13 @@ experience_data = np.array( [
                ]
                     ] )
 
-system( "clear" )
 predicted_data = experience_data.copy()
-#print( f" y_1 = {predicted_data[0][0][1]}" )   #[z][строка][столбец]
 
-weights = []
-
+weights = np.zeros( 2 )
 
 predicted_data[0][0][1] = 88
+
+system( "clear" )
 print(predicted_data)
 
 
