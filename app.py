@@ -89,13 +89,14 @@ Y_1_data = predicted_data[ 1, :, 1 ]
 Y_2_data = predicted_data[ 2, :, 1 ] 
 
 
+#PREDICTED DATA 
+n = Neuron( weights[0], biases[0] )
+n.forward( X_0_data )
+n.forward( Y_0_data )
 
-Z_data = predicted_data[ :, :, 2 ] 
-
-
-
-
-
+predicted_data[ 0, :, 2 ] = n.forward( Y_0_data ) #примерно так. но это не верно
+predicted_data[ 1, :, 2 ] = 4*4
+predicted_data[ 2, :, 2 ] = 5*5
 
 
 
