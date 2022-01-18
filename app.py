@@ -77,8 +77,18 @@ bias    = weights.copy()
 
 
 predicted_data[0][0][2] = 88
+predicted_data[0][1][2] = 88
+predicted_data[0][2][2] = 88
+
+
 predicted_data[1][0][2] = 88
+predicted_data[1][1][2] = 88
+predicted_data[1][2][2] = 88
+
+
 predicted_data[2][0][2] = 88
+predicted_data[2][1][2] = 88
+predicted_data[2][2][2] = 88
 
 system( "clear" )
 print(predicted_data)
