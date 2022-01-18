@@ -78,8 +78,27 @@ biases    = weights.copy()
 
 
 #data extraction
-X_data = predicted_data[ :, :, 0 ] 
-Y_data = predicted_data[ :, :, 1 ] 
+X_0_data = predicted_data[ 0, :, 0 ] 
+X_1_data = predicted_data[ 1, :, 0 ] 
+X_2_data = predicted_data[ 2, :, 0 ] 
+
+
+
+Y_0_data = predicted_data[ 0, :, 1 ] 
+Y_1_data = predicted_data[ 1, :, 1 ] 
+Y_2_data = predicted_data[ 2, :, 1 ] 
+
+
+
+Z_data = predicted_data[ :, :, 2 ] 
+
+
+
+
+
+
+
+
 
 
 n = Neuron( weights[0], biases[0] )
@@ -88,8 +107,13 @@ system( "clear" )
 
 print(predicted_data)
 print( "#"* 14 )
-print( f"X_data:\n{X_data}" )
-print( f"Y_data:\n{Y_data}" )
+print( f"X_0_data:\n{X_0_data}" )
+print( f"X_1_data:\n{X_1_data}" )
+print( f"X_2_data:\n{X_2_data}" )
+print( "#"* 14 )
+print( f"Y_0_data:\n{Y_0_data}" )
+print( f"Y_1_data:\n{Y_1_data}" )
+print( f"Y_2_data:\n{Y_2_data}" )
 
 
 
