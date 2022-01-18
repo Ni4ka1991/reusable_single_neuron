@@ -48,7 +48,7 @@ def accuracy( E ):
 
 # ************ ######
 
-experience_data = ( [ 
+experience_data = np.array( [ 
                [  #axis z = 0
 #                 x   y    z     = data! not axis
                  [5,  10,  15 ],
@@ -71,7 +71,13 @@ experience_data = ( [
 
 system( "clear" )
 predicted_data = experience_data.copy()
-print( f" y_1 = {predicted_data[0][0][1]}" )   #[z][строка][столбец]
+#print( f" y_1 = {predicted_data[0][0][1]}" )   #[z][строка][столбец]
+
+weights = []
+
+
+predicted_data[0][0][1] = 88
+print(predicted_data)
 
 
 
