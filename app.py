@@ -72,8 +72,14 @@ experience_data = np.array( [
 
 predicted_data = experience_data.copy()
 
-weights = np.zeros( 2 )
+weights   = np.zeros( 2 )
 biases    = weights.copy()
+
+X_data = []
+X_data = predicted_data[ 0, :, 0 ] 
+
+
+
 
 
 n = Neuron( weights[0], biases[0] )
@@ -93,27 +99,10 @@ predicted_data[2][1][2] = 88
 predicted_data[2][2][2] = 88
 
 system( "clear" )
+
 print(predicted_data)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+print( "#"* 14 )
+print( f"x_data:\n{X_data}" )
 
 
 
