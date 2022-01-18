@@ -55,21 +55,31 @@ def accuracy( E ):
 
 # ************ ######
 
-d = np.array( [ [5, 10, 15], [50, 100, 150], [60, 70, 80] ] )
-
-
+d1 = np.array( [ [5, 10, 15], [50, 100, 150], [60, 70, 80] ] )
+d2 = np.array( [ [5, 10, 15], [25, 50,  75 ], [30, 35, 40] ] )
+d3 = np.array( [ [2, 4,  6 ], [50, 100, 150], [50, 60, 70] ] )
+d_total = ( [ 
+               [ [5, 10, 15], [50, 100, 150], [60, 70, 80] ],
+               [ [5, 10, 15], [25, 50,  75 ], [30, 35, 40] ],
+               [ [2, 4,  6 ], [50, 100, 150], [50, 60, 70] ]
+          ] )
 
 
 
 a = np.ones(3)
+a2 = np.ones(( 3, 2 ))
+
 b = np.zeros(3)
+b2 = np.zeros(( 3, 2 ))
 c = np.random.random(3)
 std_c = c.std()
 mean_c = c.mean()
 system( "clear" )
-print(a)
-print(b)
-print(d)
-print( f"Random array c 1*3 = {c}" )
+print( a )
+print( a2 )
+print( b )
+print( b2 )
+print( "#"*20 + f"\nResulting matrix:\n{d_total}\n" + "#"*20 )
+print( f"Random array c 3*1 = {c}" )
 print( f"Standard deviation c: {std_c}" )
 print( f"Arithmetic mean c: {mean_c}" )
