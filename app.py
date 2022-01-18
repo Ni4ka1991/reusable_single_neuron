@@ -51,9 +51,9 @@ def accuracy( E ):
 experience_data = np.array( [ 
                [  #axis z = 0
 #                 x   y    z     = data! not axis
-                 [5,  10,  15 ],
-                 [50, 100, 150],
-                 [60, 70,  80 ]
+                 [5,  10,  15 ], #0
+                 [50, 100, 150], #1
+                 [60, 70,  80 ]  #2
                ],
                
                [ #axis z = 1
@@ -72,8 +72,13 @@ experience_data = np.array( [
 predicted_data = experience_data.copy()
 
 weights = np.zeros( 2 )
+bias    = weights.copy()
 
-predicted_data[0][0][1] = 88
+
+
+predicted_data[0][0][2] = 88
+predicted_data[1][0][2] = 88
+predicted_data[2][0][2] = 88
 
 system( "clear" )
 print(predicted_data)
