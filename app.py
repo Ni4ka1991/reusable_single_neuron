@@ -72,9 +72,18 @@ experience_data = np.array( [
 predicted_data = experience_data.copy()
 
 weights = np.zeros( 2 )
-bias    = weights.copy()
+biases    = weights.copy()
 
 
+
+
+
+test_data = np.array( [ 8, 10, 14, 5 ] )
+
+n = Neuron( weights[0], biases[0] )
+a = n.forward( test_data )
+print(a)
+input( "hit enter ..." )
 
 predicted_data[0][0][2] = 88
 predicted_data[0][1][2] = 88
