@@ -54,6 +54,7 @@ experience_data = np.array( [
                  [5,  10,  15 ], #0
                  [50, 100, 150], #1
                  [60, 70,  80 ]  #2
+               #  0   1    2
                ],
                
                [ #axis z = 1
@@ -75,17 +76,9 @@ weights = np.zeros( 2 )
 biases    = weights.copy()
 
 
-
-
-
-test_data = np.array( [ 8, 10, 14, 5 ] )
-
 n = Neuron( weights[0], biases[0] )
-a = n.forward( test_data )
-print(a)
-input( "hit enter ..." )
 
-predicted_data[0][0][2] = 88
+predicted_data[0][0][2] = (( predicted_data[0][0][0] * weights[0] + biases[0] ) +  ( predicted_data[0][0][1] * weights[1] + biases[1] ))  
 predicted_data[0][1][2] = 88
 predicted_data[0][2][2] = 88
 
