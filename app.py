@@ -73,7 +73,8 @@ experience_data = np.array( [
 predicted_data = experience_data.copy()
 
 #biases initialization
-weights   = np.zeros( 2 )
+#weights   = np.zeros( 2 )
+weights   = np.ones( 2 )
 biases    = weights.copy()
 
 
@@ -94,11 +95,25 @@ Y_2_data = predicted_data[ 2, :, 1 ]
 n1 = Neuron( weights[0], biases[0] )
 n2 = Neuron( weights[1], biases[1] )
 
-#очень сырой вариант
-predicted_data[ 0, :, 2 ] = n1.forward( X_0_data ) + n2.forward( Y_0_data )
-predicted_data[ 1, :, 2 ] = n1.forward( X_1_data ) + n2.forward( Y_1_data ) 
-predicted_data[ 2, :, 2 ] = n1.forward( X_2_data ) + n2.forward( Y_2_data ) 
+#for i in range( 0, 2 ):
+#    predicted_data[ i, :, 2 ] = ( np.array( n1.forward( predicted_data[ i, :, 0 ] ))[i] + np.array( n2.forward( predicted_data[ i, :, 1 ] ))[i])
+#    i += 1
+    
 
+
+#             слои   столбцы
+#               v     v 
+predicted_data[ 0, 0, 2 ] = np.array( n1.forward( X_0_data ))[0] + np.array( n2.forward( Y_0_data ))[0]
+predicted_data[ 0, 1, 2 ] = np.array( n1.forward( X_0_data ))[1] + np.array( n2.forward( Y_0_data ))[1]
+predicted_data[ 0, 2, 2 ] = np.array( n1.forward( X_0_data ))[2] + np.array( n2.forward( Y_0_data ))[2]
+
+predicted_data[ 1, 0, 2 ] = np.array( n1.forward( X_1_data ))[0] + np.array( n2.forward( Y_1_data ))[0]
+predicted_data[ 1, 1, 2 ] = np.array( n1.forward( X_1_data ))[1] + np.array( n2.forward( Y_1_data ))[1]
+predicted_data[ 1, 2, 2 ] = np.array( n1.forward( X_1_data ))[2] + np.array( n2.forward( Y_1_data ))[2]
+
+predicted_data[ 2, 0, 2 ] = np.array( n1.forward( X_2_data ))[0] + np.array( n2.forward( Y_2_data ))[0]
+predicted_data[ 2, 1, 2 ] = np.array( n1.forward( X_2_data ))[1] + np.array( n2.forward( Y_2_data ))[1]
+predicted_data[ 2, 2, 2 ] = np.array( n1.forward( X_2_data ))[2] + np.array( n2.forward( Y_2_data ))[2]
 
 
 
@@ -108,14 +123,21 @@ n = Neuron( weights[0], biases[0] )
 system( "clear" )
 
 print(predicted_data)
-print( "#"* 14 )
-print( f"X_0_data:\n{X_0_data}" )
-print( f"X_1_data:\n{X_1_data}" )
-print( f"X_2_data:\n{X_2_data}" )
-print( "#"* 14 )
-print( f"Y_0_data:\n{Y_0_data}" )
-print( f"Y_1_data:\n{Y_1_data}" )
-print( f"Y_2_data:\n{Y_2_data}" )
+#print( "#"* 14 )
+#print( f"Z_1:\n{Z_1}" )
+#print( f"Z_2:\n{Z_2}" )
+#print( f"Z_pred:\n{Z_pred}" )
+#print( type( Z_1 ) )
+#print( type( X_0_data ) )
+
+
+#print( f"X_1_data:\n{X_1_data}" )
+
+#print( f"X_2_data:\n{X_2_data}" )
+#print( "#"* 14 )
+#print( f"Y_0_data:\n{Y_0_data}" )
+#print( f"Y_1_data:\n{Y_1_data}" )
+#print( f"Y_2_data:\n{Y_2_data}" )
 
 
 
