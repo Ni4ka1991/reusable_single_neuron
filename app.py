@@ -6,12 +6,14 @@ from os import system
 import matplotlib.pyplot as plt
 import random
 from neuron import *
-#from data1 import *
-from data import *
+from data1 import *
+#from data import *
 
 #PREDICTED DATA 
 predicted_data = experience_data.copy()
-my_data_shape = predicted_data.shape #(сколько строк, сколько столбцов, сколько слоев )
+my_data_shape = predicted_data.shape #(nr of layers, nr of lines, nr of columns )
+print( my_data_shape )
+input( "hit enter" )
 
 
 
@@ -28,8 +30,8 @@ biases    = weights.copy()
 n1 = Neuron( weights[0], biases[0] )
 n2 = Neuron( weights[1], biases[1] )
 
-for k in range( 0 , my_data_shape[2]):
-    for i in range( 0, my_data_shape[0]):
+for k in range( 0 , my_data_shape[0]):       #k = number of z axises
+    for i in range( 0, my_data_shape[1]):    #i = number of lines
         predicted_data[ k, i, 2 ] = np.array( n1.forward( predicted_data[ k, :, 0 ] ))[i] + np.array( n2.forward( predicted_data[ k, :, 1 ] ))[i]
         i += 1
     k += 1
@@ -43,7 +45,6 @@ predicted_data_axis_Z  = np.hstack((  predicted_data[ 0, :, 2 ],  predicted_data
 
 
 system( "clear" )
-print( my_data_shape )
 print(  predicted_data_axis_Z )
 print( experience_data_axis_Z )
 
