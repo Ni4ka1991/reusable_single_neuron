@@ -100,20 +100,12 @@ n2 = Neuron( weights[1], biases[1] )
 #    i += 1
     
 
-
-#             слои   столбцы
-#               v     v 
-predicted_data[ 0, 0, 2 ] = np.array( n1.forward( X_0_data ))[0] + np.array( n2.forward( Y_0_data ))[0]
-predicted_data[ 0, 1, 2 ] = np.array( n1.forward( X_0_data ))[1] + np.array( n2.forward( Y_0_data ))[1]
-predicted_data[ 0, 2, 2 ] = np.array( n1.forward( X_0_data ))[2] + np.array( n2.forward( Y_0_data ))[2]
-
-predicted_data[ 1, 0, 2 ] = np.array( n1.forward( X_1_data ))[0] + np.array( n2.forward( Y_1_data ))[0]
-predicted_data[ 1, 1, 2 ] = np.array( n1.forward( X_1_data ))[1] + np.array( n2.forward( Y_1_data ))[1]
-predicted_data[ 1, 2, 2 ] = np.array( n1.forward( X_1_data ))[2] + np.array( n2.forward( Y_1_data ))[2]
-
-predicted_data[ 2, 0, 2 ] = np.array( n1.forward( X_2_data ))[0] + np.array( n2.forward( Y_2_data ))[0]
-predicted_data[ 2, 1, 2 ] = np.array( n1.forward( X_2_data ))[1] + np.array( n2.forward( Y_2_data ))[1]
-predicted_data[ 2, 2, 2 ] = np.array( n1.forward( X_2_data ))[2] + np.array( n2.forward( Y_2_data ))[2]
+for i in range( 0, 2 ):
+    #             слои   столбцы
+    #               v     v 
+    predicted_data[ 0, i, 2 ] = np.array( n1.forward( X_0_data ))[i] + np.array( n2.forward( Y_0_data ))[i]
+    predicted_data[ 1, i, 2 ] = np.array( n1.forward( X_1_data ))[i] + np.array( n2.forward( Y_1_data ))[i]
+    predicted_data[ 2, i, 2 ] = np.array( n1.forward( X_2_data ))[i] + np.array( n2.forward( Y_2_data ))[i]
 
 
 
