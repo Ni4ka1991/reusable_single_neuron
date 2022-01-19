@@ -24,9 +24,10 @@ my_data_shape = predicted_data.shape #(nr of layers, nr of lines, nr of columns 
 
 #CALCULATIONS
 
+weights   = np.random.random( 2 )
+biases    = np.random.random( 2 )
+
 def mse_calculation( array_shape, ):
-    weights   = np.random.random( 2 )
-    biases    = weights.copy()
 
     n1 = Neuron( weights[0], biases[0] )
     n2 = Neuron( weights[1], biases[1] )
@@ -54,7 +55,12 @@ def mse_calculation( array_shape, ):
     L = loss( E )
     return L
 
-print( mse_calculation( my_data_shape ))
-print( mse_calculation( my_data_shape ))
-print( mse_calculation( my_data_shape ))
+
+mse1 = mse_calculation( my_data_shape )
+weights   = np.random.random( 2 )
+biases    = np.random.random( 2 )
+mse2 = mse_calculation( my_data_shape )
+delta = mse1 - mse2
+
+print( delta )
 
