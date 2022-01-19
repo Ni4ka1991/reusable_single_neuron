@@ -5,6 +5,7 @@ from neuron import *
 from data import *
 
 predicted_data = experience_data.copy()
+my_data_shape = predicted_data.shape #(nr of layers, nr of lines, nr of columns )
 
 def mse_calculation( array_shape, w, b ):
 

@@ -10,10 +10,6 @@ from neuron import *
 from data import *
 from mse_calculation import *
 
-
-#PREDICTED DATA 
-my_data_shape = predicted_data.shape #(nr of layers, nr of lines, nr of columns )
-
 #biases initialization
 weights   = np.zeros( 2 )
 #weights   = np.ones( 2 )
