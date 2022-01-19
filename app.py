@@ -95,19 +95,14 @@ Y_2_data = predicted_data[ 2, :, 1 ]
 n1 = Neuron( weights[0], biases[0] )
 n2 = Neuron( weights[1], biases[1] )
 
-#for i in range( 0, 2 ):
-#    predicted_data[ i, :, 2 ] = ( np.array( n1.forward( predicted_data[ i, :, 0 ] ))[i] + np.array( n2.forward( predicted_data[ i, :, 1 ] ))[i])
-#    i += 1
-    
 
-for i in range( 0, 2 ):
-    #             слои   столбцы
-    #               v     v 
-    predicted_data[ 0, i, 2 ] = np.array( n1.forward( X_0_data ))[i] + np.array( n2.forward( Y_0_data ))[i]
-    predicted_data[ 1, i, 2 ] = np.array( n1.forward( X_1_data ))[i] + np.array( n2.forward( Y_1_data ))[i]
-    predicted_data[ 2, i, 2 ] = np.array( n1.forward( X_2_data ))[i] + np.array( n2.forward( Y_2_data ))[i]
-
-
+for k in range( 0 , 2 ):
+    for i in range( 0, 2 ):
+        #             слои   столбцы
+        #               v     v 
+        predicted_data[ k, i, 2 ] = np.array( n1.forward( predicted_data[ k, :, 0 ] ))[i] + np.array( n2.forward( predicted_data[ k, :, 1 ] ))[i]
+        i += 1
+    k += 1
 
 
 n = Neuron( weights[0], biases[0] )
@@ -115,21 +110,6 @@ n = Neuron( weights[0], biases[0] )
 system( "clear" )
 
 print(predicted_data)
-#print( "#"* 14 )
-#print( f"Z_1:\n{Z_1}" )
-#print( f"Z_2:\n{Z_2}" )
-#print( f"Z_pred:\n{Z_pred}" )
-#print( type( Z_1 ) )
-#print( type( X_0_data ) )
-
-
-#print( f"X_1_data:\n{X_1_data}" )
-
-#print( f"X_2_data:\n{X_2_data}" )
-#print( "#"* 14 )
-#print( f"Y_0_data:\n{Y_0_data}" )
-#print( f"Y_1_data:\n{Y_1_data}" )
-#print( f"Y_2_data:\n{Y_2_data}" )
 
 
 
