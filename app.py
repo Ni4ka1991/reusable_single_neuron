@@ -52,13 +52,9 @@ def mse_calculation( array_shape, ):
 
     E = error( experience_data_axis_Z, predicted_data_axis_Z )
     L = loss( E )
+    return L
 
-    print( f"z_pred : {predicted_data_axis_Z}" )
-    print( f"z_exper: {experience_data_axis_Z}" )
-    print( f"list of errors : {E}" )
-    print( f"MSE: {L}" )
-
-system( "clear" )
-mse_calculation( my_data_shape )
-mse_calculation( my_data_shape )
+print( mse_calculation( my_data_shape ))
+print( mse_calculation( my_data_shape ))
+print( mse_calculation( my_data_shape ))
 
